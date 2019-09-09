@@ -1,12 +1,20 @@
-
+plugins {
+    `kotlin-dsl`
+}
 
 repositories {
-    mavenCentral()
-    gradlePluginPortal()
-    jcenter()
+    maven {
+        name = "sponge"
+        setUrl("https://repo.spongepowered.org/maven")
+    }
+    maven {
+        name = "forge"
+        setUrl("https://files.minecraftforge.net/maven")
+    }
 }
 
 dependencies {
-    implementation(group= "org.jetbrains.kotlin", name= "kotlin-script-runtime", version= "1.3.21")
-    implementation(gradleKotlinDsl())
+    implementation("net.minecrell.licenser:net.minecrell.licenser.gradle.plugin:0.4.1")
+    implementation("net.minecraftforge.gradle:ForgeGradle:3.0.141")
+    implementation(group = "org.spongepowered", name = "SpongeGradle", version = "0.11.0-SNAPSHOT")
 }
